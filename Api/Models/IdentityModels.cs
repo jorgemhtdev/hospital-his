@@ -29,5 +29,7 @@ namespace Api.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<BD.Speciality> Specialities { get; set; }
     }
 }
