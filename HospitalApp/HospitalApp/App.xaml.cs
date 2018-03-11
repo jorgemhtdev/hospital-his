@@ -1,19 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using Xamarin.Forms;
-
-namespace HospitalApp
+﻿namespace HospitalApp
 {
-	public partial class App : Application
+    using Views;
+    using Xamarin.Forms;
+
+    public partial class App : Application
 	{
 		public App ()
 		{
 			InitializeComponent();
 
-			MainPage = new HospitalApp.MainPage();
+			MainPage = new LoginView();
 		}
 
 		protected override void OnStart ()

@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\CustomSwitchRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -128,5 +129,8 @@
       <Project>{CA9994A5-862D-4A57-A43E-68FBA723B2F7}</Project>
       <Name>HospitalApp</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\LoginLogo.png" />
   </ItemGroup>
 </Project>
