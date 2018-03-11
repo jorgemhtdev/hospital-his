@@ -1,10 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HospitalApp.App">
-	<Application.Resources>
+<Application
+    x:Class="HospitalApp.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Application.Resources>
+        <ResourceDictionary>
+            <!--  Locator  -->
 
-		<!-- Application resource dictionary -->
-
-	</Application.Resources>
+            <!--  Colors  -->
+            <Color x:Key="MainColor">#273646</Color>
+            <Color x:Key="FontColor">#2d8dd6</Color>
+            <Color x:Key="AccentColor1">#2371aa</Color>
+            <Color x:Key="AccentColor2">#e44235</Color>
+            <Color x:Key="BackgroundColor">#e9eeef</Color>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>

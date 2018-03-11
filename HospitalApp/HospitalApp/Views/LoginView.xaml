@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HospitalApp.Views.LoginView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:customControls="clr-namespace:HospitalApp.CustomControls;assembly=HospitalApp">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android" Value="0, 30, 0, 0" />
+            <On Platform="iOS" Value="0, 50, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+    <ContentPage.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="35" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0">
+                <Image
+                    Aspect="AspectFit"
+                    HeightRequest="120"
+                    Source="LoginLogo"
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="120" />
+            </StackLayout>
+            <StackLayout
+                Grid.Row="1"
+                Margin="20,0"
+                Spacing="20"
+                VerticalOptions="CenterAndExpand">
+                <Label Text="Email" TextColor="{StaticResource FontColor}" />
+                <Entry
+                    Placeholder="Introduce tu email"
+                    PlaceholderColor="{StaticResource AccentColor1}"
+                    Text="{Binding Email}"
+                    TextColor="{StaticResource AccentColor1}" />
+                <Label Text="Password" TextColor="{StaticResource FontColor}" />
+                <Entry
+                    IsPassword="True"
+                    Placeholder="Introduce tu contraseña"
+                    PlaceholderColor="{StaticResource AccentColor1}"
+                    Text="{Binding Password}"
+                    TextColor="{StaticResource AccentColor1}" />
+                <Button
+                    Command="{Binding LoginCommand}"
+                    IsEnabled="{Binding IsEnabled}"
+                    Text="Iniciar sesión" />
+                <ActivityIndicator
+                    IsRunning="{Binding IsRunning}"
+                    IsVisible="{Binding IsVisible}"
+                    Color="{StaticResource FontColor}" />
+                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <customControls:CustomToggled Margin="0,0,10,0" IsToggled="{Binding IsToggled}" />
+                    <Label
+                        HorizontalTextAlignment="Center"
+                        Text="Recordar "
+                        VerticalTextAlignment="Center" />
+                </StackLayout>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
