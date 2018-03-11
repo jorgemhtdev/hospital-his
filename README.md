@@ -97,7 +97,7 @@ The following tools are essential:
 License
 ----
 
-MIT
+The MIT License (MIT) see [License file](https://github.com/jorgemht/Hospital-HIS/blob/master/LICENSE)
 
    [Genymotion]: <https://www.genymotion.com>
    [Postman]: <https://www.getpostman.com>
