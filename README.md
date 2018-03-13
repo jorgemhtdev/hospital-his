@@ -5,7 +5,7 @@ Small example using Xamarin Forms 2.5, MVC5 and web api.
 
 Login in Xamarin Forms 2.5 with our API. Get, create, delete and update ([CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)) records from Xamarin Forms from our API. All queries from Xamarin Forms are made with token.
 
-![](https://img.shields.io/teamcity/codebetter/bt428.svg) [![License:MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+![](https://img.shields.io/teamcity/codebetter/bt428.svg) [![License:MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/jorgemht/Hospital-HIS/blob/master/LICENSE)
 
 # Usage
 ### Update your connectionStrings
@@ -19,11 +19,11 @@ Configure a connection string for SQL Server in the Web.config
     providerName="System.Data.SqlClient" />
   </connectionStrings>-->
 ```
-[Connection String Syntax](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-string-syntax)
-[Learn more about connection strings](https://www.connectionstrings.com)
+- [Connection String Syntax](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-string-syntax)
+- [Learn more about connection strings](https://www.connectionstrings.com)
 
 ### Configure validation logic for passwords
-By default, if you don't customise anything, Identity configures a default set of validation rules for new passwords. If you want to change these values, you can change the file called App_Start/IdentityConfig.cs
+By default, if you don't customise anything, Identity configures a default set of validation rules for new passwords. If you want to change these values, you can change the file called [App_Start/IdentityConfig.cs](https://github.com/jorgemht/Hospital-HIS/blob/master/Screenshots/API/PasswordValidator.png)
 
 ```
     manager.PasswordValidator = new PasswordValidator
@@ -54,18 +54,25 @@ In our PCL, the file Services/HttpService.cs you must put the url of your api an
     private string urlBase = "YourURLApi/";
     private string servicePrefix = "YourPrefix/";
 ```
-[Rest api tutorial - Microsoft](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design)
-[Rest api tutorial - hackernoon](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9)
-[Rest api tutorial - code-maze](https://code-maze.com/top-rest-api-best-practices/)
-[Rest api tutorial - solidgeargroup](https://solidgeargroup.com/best-practices-rest-api)
+- [Rest api tutorial - Microsoft](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design)
+- [Rest api tutorial - hackernoon](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9)
+- [Rest api tutorial - code-maze](https://code-maze.com/top-rest-api-best-practices/)
+- [Rest api tutorial - solidgeargroup](https://solidgeargroup.com/best-practices-rest-api)
+
+### Check your API with postam
+
+- [Get token with postman](https://github.com/jorgemht/Hospital-HIS/blob/master/Screenshots/API/token-postmanclient.png)
+- [Get - Example with token with postman](https://github.com/jorgemht/Hospital-HIS/blob/master/Screenshots/API/tokenUse-postmanclient.png)
+
 
 # Security
 OAuth 2.0 protocol and Microsoft Owin Library will help us. Owin is basically creating own pipeline between iis and application to manage requests.
 
 In the file Startup.Auth.cs an OWIN Authorization server is configured to accept login (token) HTTP requests at /Token endpoint and external login requests at /api/Account/ExternalLogin
 
-[OAuthAuthorizationServerOptions Class](https://msdn.microsoft.com/en-us/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.113).aspx)
-[Oauth](https://oauth.net/)
+- [OAuthAuthorizationServerOptions Class](https://msdn.microsoft.com/en-us/library/microsoft.owin.security.oauth.oauthauthorizationserveroptions(v=vs.113).aspx)
+- [Oauth](https://oauth.net/)
+- [OAuthAuthorizationServerOptions Token](https://github.com/jorgemht/Hospital-HIS/blob/master/Screenshots/API/Token.png)
 
 # Plugins
 ### Web API and MVC5 
@@ -77,7 +84,6 @@ In the file Startup.Auth.cs an OWIN Authorization server is configured to accept
 ### Xamarin 
 | Plugin | Author |
 | ------ | ------ |
-| Mvvm-helpers | [james montemagno][PlDb] |
 | Settings | [james montemagno][PlMe] |
 | MvvmLightLibsStd10 | [galasoft][PlGh] |
 | Connectivity | [james montemagno][PlGd] |
