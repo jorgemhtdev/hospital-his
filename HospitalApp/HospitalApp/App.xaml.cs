@@ -5,7 +5,12 @@
 
     public partial class App : Application
 	{
-		public App ()
+	    #region Properties
+	    public static NavigationPage Navigator { get; set; }
+	    public static MasterView Master { get; set; }
+	    #endregion
+
+        public App ()
 		{
 			InitializeComponent();
 

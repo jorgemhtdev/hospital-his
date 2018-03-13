@@ -1,4 +1,8 @@
-﻿namespace HospitalApp.ViewModel
+﻿using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
+using HospitalApp.Services;
+
+namespace HospitalApp.ViewModel
 {
     using Model.Request;
 
@@ -9,6 +13,7 @@
         private string password;
         private bool isToggled;
         #endregion
+
         #region Properties
         public string Email
          {
@@ -27,6 +32,8 @@
         }
         #endregion
 
+        public ICommand LoginCommand => new RelayCommand(Login);
+
         public LoginViewModel()
         {
             IsToggled = true;
@@ -41,6 +48,8 @@
                 Email = Email,
                 Password = Password
             };
+
+            MainViewModel.GetInstance().Navigation.SetMainPage("MasterView");
 
         }
         #endregion
