@@ -1,5 +1,6 @@
 ﻿namespace HospitalApp
 {
+    using HospitalApp.Helpers;
     using Views;
     using Xamarin.Forms;
 
@@ -13,9 +14,15 @@
         public App ()
 		{
 			InitializeComponent();
-
-			MainPage = new LoginView();
-		}
+            if(Settings.IsLogin && !string.IsNullOrEmpty(Settings.AccessToken))
+            {
+                MainPage = new MasterView();
+            }
+            else
+            {
+                MainPage = new LoginView();
+            }
+        }
 
 		protected override void OnStart ()
 		{
