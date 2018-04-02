@@ -1,10 +1,9 @@
-﻿using System.Windows.Input;
-using GalaSoft.MvvmLight.Command;
-using HospitalApp.Services;
-
-namespace HospitalApp.ViewModel
+﻿namespace HospitalApp.ViewModel
 {
-    using Model.Request;
+    using System.Windows.Input;
+    using GalaSoft.MvvmLight.Command;
+    using global::Model.Request;
+    using HospitalApp.Helpers;
 
     public class LoginViewModel : BaseViewModel
     {
@@ -32,25 +31,42 @@ namespace HospitalApp.ViewModel
         }
         #endregion
 
-        public ICommand LoginCommand => new RelayCommand(Login);
 
+        #region Constructor
         public LoginViewModel()
         {
             IsToggled = true;
         }
+        #endregion
 
         #region Command
+        public ICommand LoginCommand => new RelayCommand(Login);
 
-        private void Login()
+        private async void Login()
         {
-            var user = new TokenRequest()
+            var user = new UserRequest()
             {
                 Email = Email,
                 Password = Password
             };
 
-            MainViewModel.GetInstance().Navigation.SetMainPage("MasterView");
+            if(string.IsNullOrEmpty(Email))
+            {
+                await MainViewModel.GetInstance().DialogService.ShowMessage("Error", "Debes rellenar el email");
+                return;
+            }
 
+            if (string.IsNullOrEmpty(Password))
+            {
+                await MainViewModel.GetInstance().DialogService.ShowMessage("Error", "Debes rellenar la password");
+                return;
+            }
+
+            if (await MainViewModel.GetInstance().ApiService.UserProfile(user) == null) return;
+
+            Settings.IsLogin = IsToggled;
+
+            MainViewModel.GetInstance().Navigation.SetMainPage("MasterView");
         }
         #endregion
     }

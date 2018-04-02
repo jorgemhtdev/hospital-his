@@ -10,7 +10,6 @@
 		public LoginView ()
 		{
 			InitializeComponent ();
-
 		    BindingContext = new LoginViewModel();
 		}
 	}

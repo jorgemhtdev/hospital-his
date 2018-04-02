@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-
-namespace HospitalApp.Services
+﻿namespace HospitalApp.Services
 {
     using Views;
     using Xamarin.Forms;
@@ -17,21 +15,6 @@ namespace HospitalApp.Services
                     break;
             }
         }
-        public async Task NavigateOnMaster(string pageName)
-        {
-            App.Master.IsPresented = true;
-
-            switch (pageName)
-            {
-                case "#":
-                    //await App.Navigator.PushAsync();
-                    break;
-                case "##":
-                    //Logout();
-                    break;
-            }
-        }
         #endregion
-
     }
 }
