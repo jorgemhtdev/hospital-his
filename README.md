@@ -51,8 +51,9 @@ In our PCL, the file App.xaml you can change the color
 ### Set your API
 In our PCL, the file Services/HttpService.cs you must put the url of your api and prefix
 ```
-    private string urlBase = "YourURLApi/";
-    private string servicePrefix = "YourPrefix/";
+        private const string UrlApi = "YOURAPI";
+        private const string tokenType = "bearer";
+        protected const string FirstVersion = "/api";
 ```
 - [Rest api tutorial - Microsoft](https://docs.microsoft.com/en-us/azure/architecture/best-practices/api-design)
 - [Rest api tutorial - hackernoon](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9)
