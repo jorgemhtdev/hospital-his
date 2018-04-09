@@ -13,15 +13,15 @@
             switch (Device.RuntimePlatform)
             {
                 case Device.iOS:
-                    Children.Add(new SpecialitieView() { Title = "Especialidades" }); // Icon = "ListWhite"
-                    Children.Add(new DoctorView() { Title = "Doctores"}); // Icon = "Map" 
+                    Children.Add(new SpecialityView() { Title = "Especialidades", Icon = "Specialities" });
+                    Children.Add(new DoctorView() { Title = "Doctores", Icon = "UserTab" });
                     break;
                 case Device.Android:
-                    Children.Add(new SpecialitieView() { Title = "Especialidades" });
+                    Children.Add(new SpecialityView() { Title = "Especialidades" });
                     Children.Add(new DoctorView() { Title = "Doctores" });
                     break;
                 default:
-                    Children.Add(new SpecialitieView() { Title = "Especialidades" });
+                    Children.Add(new SpecialityView() { Title = "Especialidades" });
                     Children.Add(new DoctorView() { Title = "Doctores" });
                     break;
             }

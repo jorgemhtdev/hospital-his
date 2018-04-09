@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
-
-namespace HospitalApp.ViewModel
+﻿namespace HospitalApp.ViewModel
 {
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
+
     public class BaseViewModel : INotifyPropertyChanged
     {
         #region Events

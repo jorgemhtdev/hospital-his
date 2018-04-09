@@ -126,6 +126,9 @@
     <PackageReference Include="Xam.Plugin.Connectivity">
       <Version>3.1.1</Version>
     </PackageReference>
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle">
+      <Version>2.0.2</Version>
+    </PackageReference>
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
     </PackageReference>
@@ -157,5 +160,17 @@
     <ImageAsset Include="Resources\Media.xcassets\LaunchImages.launchimage\Contents.json">
       <Visible>false</Visible>
     </ImageAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\UserPhoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\UserTab.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Specialities.png" />
   </ItemGroup>
 </Project>

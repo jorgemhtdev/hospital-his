@@ -1,5 +1,6 @@
 ﻿namespace HospitalApp.Droid
 {
+    using ImageCircle.Forms.Plugin.Droid;
     using Android.App;
     using Android.Content.PM;
     using Android.OS;
@@ -15,6 +16,8 @@
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            ImageCircleRenderer.Init();
+
             LoadApplication(new App());
         }
     }

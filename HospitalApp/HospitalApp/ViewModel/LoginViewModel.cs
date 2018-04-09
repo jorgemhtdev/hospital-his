@@ -1,9 +1,9 @@
 ﻿namespace HospitalApp.ViewModel
 {
-    using System.Windows.Input;
     using GalaSoft.MvvmLight.Command;
-    using global::Model.Request;
     using HospitalApp.Helpers;
+    using Model.Request;
+    using System.Windows.Input;
 
     public class LoginViewModel : BaseViewModel
     {
@@ -19,7 +19,7 @@
              get => email;
              set => SetProperty(ref email, value);
          }
-         public string Password
+        public string Password
          {
              get => password;
              set => SetProperty(ref password, value);
@@ -62,7 +62,11 @@
                 return;
             }
 
-            if (await MainViewModel.GetInstance().ApiService.UserProfile(user) == null) return;
+            if (await MainViewModel.GetInstance().ApiService.UserProfile(user) == null)
+            {
+                await MainViewModel.GetInstance().DialogService.ShowMessage("Error", "Hay algún error para acceder a su cuenta. Revisa tus credenciales. Gracias.");
+                return;
+            } 
 
             Settings.IsLogin = IsToggled;
 
