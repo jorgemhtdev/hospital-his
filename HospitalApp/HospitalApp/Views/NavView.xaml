@@ -2,13 +2,64 @@
 <ContentPage
     x:Class="HospitalApp.Views.NavView"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Orientation="Vertical">
+                <abstractions:CircleImage
+                    Margin="20,0,0,0"
+                    Aspect="AspectFill"
+                    HeightRequest="100"
+                    HorizontalOptions="Start"
+                    Source="UserPhoto"
+                    TranslationY="50"
+                    WidthRequest="100" />
+                <Label
+                    Margin="60,0,0,0"
+                    HorizontalTextAlignment="Center"
+                    Text="Gregory House"
+                    VerticalTextAlignment="Center" />
+            </StackLayout>
+            <ListView
+                Grid.Row="1"
+                BackgroundColor="{StaticResource AccentColor1}"
+                ItemsSource="{Binding HamburgerNav}"
+                RowHeight="60"
+                SelectedItem="{Binding SelectedItem}"
+                SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding Icon}" />
+                                <Label
+                                    Grid.Column="2"
+                                    Text="{Binding Title, Mode=TwoWay}"
+                                    TextColor="{StaticResource FontColor}"
+                                    VerticalOptions="Center" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button
+                Grid.Row="2"
+                Command="{Binding LogoutCommand}"
+                CornerRadius="0"
+                Text="Cerrar sesión"
+                TextColor="{StaticResource AccentColor2}"
+                VerticalOptions="EndAndExpand" />
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

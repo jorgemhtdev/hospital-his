@@ -1,11 +1,12 @@
 ﻿namespace HospitalApp.Services
 {
-    using HospitalApp.Helpers;
-    using HospitalApp.ViewModel;
+    using Helpers;
     using Model;
     using Model.Request;
     using Plugin.Connectivity;
+    using System.Collections.Generic;
     using System.Threading.Tasks;
+    using ViewModel;
 
     public class ApiService : HttpService
     {
@@ -22,7 +23,6 @@
 
             if(token == null || token.AccessToken == null)
             {
-                await MainViewModel.GetInstance().DialogService.ShowMessage("Error", "Revisa tus credenciales");
                 return null;
             }
 
@@ -40,13 +40,47 @@
         }
         #endregion
 
+        #region Doctor
+        public async Task<List<DoctorResponse>> GetDoctor()
+        {
+            var response = await Get<DoctorResponse>(FirstVersion, "/Doctors/List/");
+
+            if (!response.IsSuccess) return null;
+
+            return (List<DoctorResponse>)response.Result;
+
+        }
+        #endregion
+
+        #region Specialities
+        public async Task<List<SpecialityResponse>> GetSpecialities()
+        {
+            var response = await Get<SpecialityResponse>(FirstVersion, "/Specialities/List/");
+
+            if (!response.IsSuccess) return null;
+
+            return (List<SpecialityResponse>)response.Result;
+
+        }
+        #endregion
+
         #region Methods
         public async Task<bool> IsConnection()
         {
 
-            if (!CrossConnectivity.Current.IsConnected) return false;
+            if (!CrossConnectivity.Current.IsConnected)
+            {
+                await MainViewModel.GetInstance().DialogService.ShowMessage("Error", "No dispones de conexión a internet");
 
-            if (!await CrossConnectivity.Current.IsRemoteReachable("google.com")) return true;
+                return false;
+            }
+
+            if (!await CrossConnectivity.Current.IsRemoteReachable("google.com"))
+            {
+                await MainViewModel.GetInstance().DialogService.ShowMessage("Error", "No dispones de conexión a internet");
+
+                return false;
+            }
 
             return true;
         }

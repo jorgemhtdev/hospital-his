@@ -11,15 +11,15 @@
         [Index("Speciality_IdDoctor_IdSpeciality_Index", Order = 0)]
         public int DoctorId { get; set; }
 
-        [DisplayName("Nombre")] public string Name { get; set; }
-        [DisplayName("Edad")] public int Age { get; set; }
+        [DisplayName("Nombre")]
+        public string Name { get; set; }
+        [DisplayName("Edad")]
+        public int Age { get; set; }
 
         #region Foreing Key
-
         [DisplayName("Especialidad")]
         [Index("Speciality_IdDoctor_IdSpeciality_Index", Order = 1)]
         public int SpecialityId { get; set; }
-
         #endregion
 
         #region Virtual

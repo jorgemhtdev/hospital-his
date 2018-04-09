@@ -2,10 +2,12 @@
 <Application
     x:Class="HospitalApp.App"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:infrastructure="clr-namespace:HospitalApp.Infrastructure;assembly=HospitalApp">
     <Application.Resources>
         <ResourceDictionary>
             <!--  Locator  -->
+            <infrastructure:InstanceLocator x:Key="Locator" />
 
             <!--  Colors  -->
             <Color x:Key="MainColor">#273646</Color>

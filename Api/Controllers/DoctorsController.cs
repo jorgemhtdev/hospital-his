@@ -1,6 +1,7 @@
 ﻿namespace Api.Controllers
 {
     using BD;
+    using Model;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     using System.Linq;
@@ -10,21 +11,47 @@
     using System.Web.Http.Description;
 
     [Authorize]
+    [RoutePrefix("api/Doctors")]
     public class DoctorsController : ApiController
     {
         private DataContext db = new DataContext();
 
-        // GET: api/Doctors
-        public IQueryable<Doctor> GetDoctors()
+        [HttpGet]
+        [Route("List")]
+        public IHttpActionResult GetDoctors()
         {
-            return db.Doctors;
+            var query = (from doctor in db.Doctors
+                         join speciality in db.Specialities
+                             on doctor.SpecialityId equals speciality.SpecialityId
+                         select new DoctorResponse
+                         {
+                             Name = doctor.Name,
+                             Age = doctor.Age,
+                             Speciality = speciality.Name
+                         }).ToList();
+
+            if (query == null) return NotFound();
+
+            return Ok(query);
         }
 
-        // GET: api/Doctors/5
+        [HttpPost]
+        [Route("Create")]
+        public async Task<IHttpActionResult> PostDoctor(Doctor doctor)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            db.Doctors.Add(doctor);
+
+            await db.SaveChangesAsync();
+            return Ok(200);
+        }
+
         [ResponseType(typeof(Doctor))]
         public async Task<IHttpActionResult> GetDoctor(int id)
         {
-            Doctor doctor = await db.Doctors.FindAsync(id);
+            var doctor = await db.Doctors.FindAsync(id);
+
             if (doctor == null)
             {
                 return NotFound();
@@ -66,21 +93,6 @@
             }
 
             return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/Doctors
-        [ResponseType(typeof(Doctor))]
-        public async Task<IHttpActionResult> PostDoctor(Doctor doctor)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Doctors.Add(doctor);
-            await db.SaveChangesAsync();
-
-            return CreatedAtRoute("DefaultApi", new { id = doctor.DoctorId }, doctor);
         }
 
         // DELETE: api/Doctors/5

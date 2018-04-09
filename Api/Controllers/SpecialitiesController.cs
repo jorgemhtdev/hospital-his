@@ -10,21 +10,34 @@
     using System.Web.Http.Description;
 
     [Authorize]
+    [RoutePrefix("api/Specialities")]
     public class SpecialitiesController : ApiController
     {
         private DataContext db = new DataContext();
 
-        // GET: api/Specialities
-        public IQueryable<Speciality> GetSpecialities()
+        [HttpGet]
+        [Route("List")]
+        public async Task<IHttpActionResult> GetSpecialities()
         {
-            return db.Specialities;
+            return Ok(await db.Specialities.ToListAsync());
         }
 
-        // GET: api/Specialities/5
+        [HttpPost]
+        [Route("Create")]
+        public async Task<IHttpActionResult> PostSpeciality(Speciality speciality)
+        {
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            db.Specialities.Add(speciality);
+            await db.SaveChangesAsync();
+
+            return Ok(200);
+        }
+
         [ResponseType(typeof(Speciality))]
         public async Task<IHttpActionResult> GetSpeciality(int id)
         {
-            Speciality speciality = await db.Specialities.FindAsync(id);
+            var speciality = await db.Specialities.FindAsync(id);
             if (speciality == null)
             {
                 return NotFound();
@@ -33,7 +46,6 @@
             return Ok(speciality);
         }
 
-        // PUT: api/Specialities/5
         [ResponseType(typeof(void))]
         public async Task<IHttpActionResult> PutSpeciality(int id, Speciality speciality)
         {
@@ -66,21 +78,6 @@
             }
 
             return StatusCode(HttpStatusCode.NoContent);
-        }
-
-        // POST: api/Specialities
-        [ResponseType(typeof(Speciality))]
-        public async Task<IHttpActionResult> PostSpeciality(Speciality speciality)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Specialities.Add(speciality);
-            await db.SaveChangesAsync();
-
-            return CreatedAtRoute("DefaultApi", new { id = speciality.SpecialityId }, speciality);
         }
 
         // DELETE: api/Specialities/5
