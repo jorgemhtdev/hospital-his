@@ -1,5 +1,6 @@
 ﻿namespace HospitalApp.Views
 {
+    using ViewModel;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
 
@@ -8,7 +9,8 @@
 	{
 		public NavView ()
 		{
-			InitializeComponent ();
+		    InitializeComponent();
+		    BindingContext = new NavViewModel();
 		}
 	}
 }

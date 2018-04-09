@@ -1,15 +1,15 @@
 ﻿namespace HospitalApp
 {
-    using HospitalApp.Helpers;
+    using Helpers;
     using Views;
     using Xamarin.Forms;
 
     public partial class App : Application
 	{
-	    #region Properties
+        #region Properties
 	    public static NavigationPage Navigator { get; set; }
 	    public static MasterView Master { get; set; }
-	    #endregion
+        #endregion
 
         public App ()
 		{

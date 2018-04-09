@@ -43,9 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DoctorResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request\DoctorRequest.cs" />
     <Compile Include="Request\UserRequest.cs" />
     <Compile Include="Response.cs" />
+    <Compile Include="SpecialityResponse.cs" />
     <Compile Include="TokenResponse.cs" />
     <Compile Include="UserResponse.cs" />
   </ItemGroup>

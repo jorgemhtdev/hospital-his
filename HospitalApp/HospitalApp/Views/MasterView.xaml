@@ -10,7 +10,6 @@
             BackgroundColor="{StaticResource AccentColor1}"
             Icon="BurgerMenu" />
     </MasterDetailPage.Master>
-
     <MasterDetailPage.Detail>
         <NavigationPage
             x:Name="Navigator"
