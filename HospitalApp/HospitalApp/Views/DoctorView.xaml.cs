@@ -12,5 +12,12 @@
 			InitializeComponent();
             BindingContext = new DoctorViewModel();
 		}
-	}
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            await ((DoctorViewModel)BindingContext).Load();
+        }
+    }
 }

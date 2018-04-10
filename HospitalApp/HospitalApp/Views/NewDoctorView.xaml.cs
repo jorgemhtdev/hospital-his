@@ -1,5 +1,6 @@
 ﻿namespace HospitalApp.Views
 {
+    using HospitalApp.ViewModel;
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
 
@@ -9,6 +10,7 @@
 		public NewDoctorView ()
 		{
 			InitializeComponent ();
+            BindingContext = new NewDoctorViewModel();
 		}
 	}
 }

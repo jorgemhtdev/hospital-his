@@ -3,12 +3,14 @@
     using GalaSoft.MvvmLight.Command;
     using Model;
     using System.Collections.ObjectModel;
+    using System.Threading.Tasks;
     using System.Windows.Input;
 
     public class SpecialityViewModel : BaseViewModel
     {
         #region Attributes 
         private ObservableCollection<SpecialityResponse> specialitiesList;
+        private bool isVisibleListView;
         #endregion
 
         #region Properties
@@ -17,12 +19,17 @@
             get => specialitiesList;
             set => SetProperty(ref specialitiesList, value);
         }
+        public bool IsVisibleListView
+        {
+            get => isVisibleListView;
+            set => SetProperty(ref isVisibleListView, value);
+        }
         #endregion
 
         #region Constructor
         public SpecialityViewModel()
         {
-            Load();
+            
         }
         #endregion
 
@@ -35,7 +42,7 @@
         #endregion
 
         #region Methods
-        private async void Load()
+        public async Task Load()
         {
             if (!await MainViewModel.GetInstance().ApiService.IsConnection()) return;
 
@@ -44,6 +51,7 @@
             if (listSpecialities != null)
             {
                 SpecialitiesList = new ObservableCollection<SpecialityResponse>(listSpecialities);
+                IsVisibleListView = true;
             }
             else
             {

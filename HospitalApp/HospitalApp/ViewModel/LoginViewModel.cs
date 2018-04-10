@@ -44,6 +44,12 @@
 
         private async void Login()
         {
+            if (!await MainViewModel.GetInstance().ApiService.IsConnection())
+            {
+                await MainViewModel.GetInstance().DialogService.ShowMessage("Error", "No dispones de conexión a internet");
+                return;
+            }
+
             var user = new UserRequest()
             {
                 Email = Email,
@@ -65,6 +71,7 @@
             if (await MainViewModel.GetInstance().ApiService.UserProfile(user) == null)
             {
                 await MainViewModel.GetInstance().DialogService.ShowMessage("Error", "Hay algún error para acceder a su cuenta. Revisa tus credenciales. Gracias.");
+                Password = string.Empty;
                 return;
             } 
 

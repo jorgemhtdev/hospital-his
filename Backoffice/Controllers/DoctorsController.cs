@@ -7,7 +7,6 @@
     using System.Threading.Tasks;
     using System.Web.Mvc;
 
-
     public class DoctorsController : Controller
     {
         private DataContextBackoffice db = new DataContextBackoffice();
