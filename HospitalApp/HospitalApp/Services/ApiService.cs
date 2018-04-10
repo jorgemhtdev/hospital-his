@@ -13,12 +13,6 @@
         #region users
         public async Task<UserResponse> UserProfile(UserRequest user)
         {
-            if (!await IsConnection())
-            {
-                await MainViewModel.GetInstance().DialogService.ShowMessage("Error", "No dispones de conexión a internet");
-                return null;
-            }
-
             var token = await GetToken(user.Email, user.Password);
 
             if(token == null || token.AccessToken == null)
@@ -48,7 +42,12 @@
             if (!response.IsSuccess) return null;
 
             return (List<DoctorResponse>)response.Result;
+        }
+        public async Task<bool> NewDoctor(DoctorRequest doctor)
+        {
+            var response = await PostStatusCode(FirstVersion, "/Doctors/Create/", doctor);
 
+            return response.IsSuccess;
         }
         #endregion
 
@@ -60,7 +59,12 @@
             if (!response.IsSuccess) return null;
 
             return (List<SpecialityResponse>)response.Result;
+        }
+        public async Task<bool> NewSpeciality(SpecialityRequest speciality)
+        {
+            var response = await Post(FirstVersion, "/Specialities/Create/", speciality);
 
+            return response.IsSuccess;
         }
         #endregion
 

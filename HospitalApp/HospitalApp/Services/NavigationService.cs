@@ -32,6 +32,11 @@
             }
         }
 
+        public async Task BackOnDetailView()
+        {
+            await App.Navigator.PopToRootAsync();
+        }
+
         public async Task NavigateOnMasterView(string pageName)
         {
             App.Master.IsPresented = false;

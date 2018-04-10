@@ -45,10 +45,7 @@
                 var client = new HttpClient()
                 {
                     BaseAddress = new Uri(UrlApi),
-                    DefaultRequestHeaders =
-                    {
-                        Authorization = new AuthenticationHeaderValue(tokenType, Settings.AccessToken)
-                    }
+                    DefaultRequestHeaders = {Authorization = new AuthenticationHeaderValue(tokenType, Settings.AccessToken)}
                 };
 
                 var url = $"{version}{patch}";
@@ -86,7 +83,89 @@
         #endregion
 
         #region Post
+        public async Task<Response> Post<T>(string version, string patch, T model)
+        {
+            try
+            {
+                var request = JsonConvert.SerializeObject(model);
+                var content = new StringContent(request, Encoding.UTF8, "application/json");
 
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, Settings.AccessToken);
+                client.BaseAddress = new Uri(UrlApi);
+
+                var url = $"{version}{patch}";
+
+                var response = await client.PostAsync(url, content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = response.StatusCode.ToString(),
+                    };
+                }
+
+                var result = await response.Content.ReadAsStringAsync();
+                var newRecord = JsonConvert.DeserializeObject<T>(result);
+
+                return new Response
+                {
+                    IsSuccess = true,
+                    Message = "Record added OK",
+                    Result = newRecord,
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
+        }
+
+        public async Task<Response> PostStatusCode<T>(string version, string patch, T model)
+        {
+            try
+            {
+                var request = JsonConvert.SerializeObject(model);
+                var content = new StringContent(request, Encoding.UTF8, "application/json");
+
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(tokenType, Settings.AccessToken);
+                client.BaseAddress = new Uri(UrlApi);
+
+                var url = $"{version}{patch}";
+
+                var response = await client.PostAsync(url, content);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    return new Response
+                    {
+                        IsSuccess = false,
+                        Message = response.StatusCode.ToString(),
+                    };
+                }
+
+                return new Response
+                {
+                    IsSuccess = true,
+                    Message = "Record added OK",
+                };
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
+        }
         #endregion
     }
 }

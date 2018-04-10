@@ -5,10 +5,39 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Content>
         <StackLayout>
-            <Label
-                HorizontalOptions="CenterAndExpand"
-                Text="Añadir nuevo doctor o doctora"
-                VerticalOptions="CenterAndExpand" />
+            <Grid
+                Margin="20"
+                RowSpacing="25"
+                VerticalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="40" />
+                </Grid.RowDefinitions>
+
+                <Entry
+                    Grid.Row="0"
+                    Placeholder="Nombre"
+                    Text="{Binding Name}" />
+                <Entry
+                    Grid.Row="1"
+                    Placeholder="Age"
+                    Text="{Binding Age}" />
+                <Picker
+                    Title="Especialidad"
+                    Grid.Row="2"
+                    HeightRequest="120"
+                    ItemDisplayBinding="{Binding Name}"
+                    ItemsSource="{Binding Speciality}"
+                    SelectedItem="{Binding SelectPicker}"
+                    WidthRequest="120" />
+            </Grid>
+            <Button
+                BackgroundColor="Red"
+                Command="{Binding SaveNewDoctorCommand}"
+                CornerRadius="0"
+                Text="Añadir"
+                VerticalOptions="End" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
