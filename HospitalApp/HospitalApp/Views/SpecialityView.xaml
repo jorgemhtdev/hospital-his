@@ -13,7 +13,7 @@
             Text="Nuevo" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ListView ItemsSource="{Binding SpecialitiesList}">
+        <ListView IsVisible="{Binding IsVisibleListView}" ItemsSource="{Binding SpecialitiesList}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding Name}" />

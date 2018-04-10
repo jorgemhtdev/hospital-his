@@ -165,12 +165,12 @@
     <BundleResource Include="Resources\UserPhoto.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Back.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\UserTab.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Specialities.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Background.png" />
   </ItemGroup>
 </Project>

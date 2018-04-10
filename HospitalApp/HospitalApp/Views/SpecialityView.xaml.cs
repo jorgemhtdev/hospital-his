@@ -12,5 +12,12 @@
 			InitializeComponent();
             BindingContext = new SpecialityViewModel();
         }
-	}
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            await ((SpecialityViewModel)BindingContext).Load();
+        }
+    }
 }
