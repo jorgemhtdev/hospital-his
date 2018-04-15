@@ -13,7 +13,7 @@
         private string name;
         private string age;
         private List<SpecialityResponse> speciality;
-        public SpecialityResponse specialityResponse;
+        private SpecialityResponse specialityResponse;
         #endregion
 
         #region Properties
@@ -43,6 +43,7 @@
         public NewDoctorViewModel()
         {
             LoadPicker();
+            Title = "Añadir doctor";
         }
         #endregion
 
@@ -51,6 +52,8 @@
 
         private async void SaveNewDoctor()
         {
+            if (!await MainViewModel.GetInstance().ApiService.IsConnection()) return;
+
             if (String.IsNullOrEmpty(Name))
             {
                 await MainViewModel.GetInstance().DialogService.ShowMessage("Error", "Debes introduccir un nombre");
@@ -79,6 +82,7 @@
                 await MainViewModel.GetInstance().DialogService.ShowMessage("Error", "No se ha podido añadir un nuevo doctor/a. Intentelo más tarde");
                 return;
             }
+
             await MainViewModel.GetInstance().Navigation.BackOnDetailView();
         }
         #endregion

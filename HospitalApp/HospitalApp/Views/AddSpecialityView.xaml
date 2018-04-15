@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="HospitalApp.Views.AddSpecialityView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource BackgroundColor}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry
+                Grid.Row="0"
+                Margin="20,0"
+                Placeholder="Nombre de la especialidad"
+                PlaceholderColor="{StaticResource FontColor}"
+                Text="{Binding Name}"
+                TextColor="{StaticResource FontColor}"
+                VerticalOptions="CenterAndExpand" />
+            <Button
+                BackgroundColor="{StaticResource MainColor}"
+                Command="{Binding NewSpecialityCommand}"
+                CornerRadius="0"
+                Text="Añadir"
+                TextColor="{StaticResource FontColor}"
+                VerticalOptions="End" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

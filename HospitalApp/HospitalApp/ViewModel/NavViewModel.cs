@@ -1,6 +1,7 @@
 ﻿namespace HospitalApp.ViewModel
 {
     using GalaSoft.MvvmLight.Command;
+    using Model;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.Windows.Input;
@@ -29,19 +30,21 @@
         }
         #endregion
 
-        #region Methods
+        #region Constructor
         public NavViewModel()
         {
             LoadNav();
         }
+        #endregion 
 
+        #region Methods
         private void LoadNav()
         {
             var navList = new List<NavModel>
             {
                 new NavModel
                 {
-                    Icon = "#",
+                    Icon = "Nav_User",
                     ViewName = "UserView",
                     Title = "Mi perfil"
                 },
@@ -64,10 +67,8 @@
                     Title = "Example004"
                 }
             };
-
             HamburgerNav = new ObservableCollection<NavModel>(navList);
         }
-
         private async void HandleSelection()
         {
             if (SelectedItem?.ViewName == null) return;
@@ -83,15 +84,6 @@
         {
             await MainViewModel.GetInstance().Navigation.NavigateOnMasterView("LogoutAccount");
         }
-        #endregion
-    }
-
-    public class NavModel
-    {
-        #region Properties
-        public string Title { get; set; }
-        public string ViewName { get; set; }
-        public string Icon { get; set; }
         #endregion
     }
 }

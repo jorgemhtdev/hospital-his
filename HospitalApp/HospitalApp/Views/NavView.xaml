@@ -3,51 +3,61 @@
     x:Class="HospitalApp.Views.NavView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions">
+    xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+    BackgroundColor="{StaticResource AccentColor1}">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="Android" Value="0" />
+            <On Platform="iOS" Value="0, 30, 0, 0" />
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="150" />
+                <RowDefinition Height="145" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="50" />
+                <RowDefinition Height="49" />
             </Grid.RowDefinitions>
-            <StackLayout Grid.Row="0" Orientation="Vertical">
+            <StackLayout
+                Grid.Row="0"
+                BackgroundColor="{StaticResource AccentColor1}"
+                Orientation="Vertical">
                 <abstractions:CircleImage
-                    Margin="20,0,0,0"
+                    Margin="15,0,0,0"
                     Aspect="AspectFill"
-                    HeightRequest="100"
+                    HeightRequest="105"
                     HorizontalOptions="Start"
                     Source="UserPhoto"
-                    TranslationY="50"
-                    WidthRequest="100" />
+                    WidthRequest="105" />
                 <Label
-                    Margin="60,0,0,0"
-                    HorizontalTextAlignment="Center"
+                    Margin="15,0,0,5"
+                    HorizontalTextAlignment="Start"
                     Text="Gregory House"
-                    VerticalTextAlignment="Center" />
+                    TextColor="{StaticResource FontColor}"
+                    VerticalOptions="EndAndExpand" />
             </StackLayout>
             <ListView
                 Grid.Row="1"
-                BackgroundColor="{StaticResource AccentColor1}"
+                BackgroundColor="{StaticResource AccentColor2}"
                 ItemsSource="{Binding HamburgerNav}"
-                RowHeight="60"
+                RowHeight="50"
                 SelectedItem="{Binding SelectedItem}"
                 SeparatorVisibility="None">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Grid>
+                            <Grid ColumnSpacing="10">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50" />
-                                    <ColumnDefinition Width="5" />
+                                    <ColumnDefinition Width="35" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <Image Source="{Binding Icon}" />
                                 <Label
-                                    Grid.Column="2"
+                                    Grid.Column="1"
+                                    HorizontalTextAlignment="Start"
                                     Text="{Binding Title, Mode=TwoWay}"
                                     TextColor="{StaticResource FontColor}"
-                                    VerticalOptions="Center" />
+                                    VerticalTextAlignment="Center" />
                             </Grid>
                         </ViewCell>
                     </DataTemplate>
@@ -55,11 +65,11 @@
             </ListView>
             <Button
                 Grid.Row="2"
+                BackgroundColor="{StaticResource MainColor}"
                 Command="{Binding LogoutCommand}"
                 CornerRadius="0"
                 Text="Cerrar sesión"
-                TextColor="{StaticResource AccentColor2}"
-                VerticalOptions="EndAndExpand" />
+                TextColor="{StaticResource FontColor}" />
         </Grid>
     </ContentPage.Content>
 </ContentPage>

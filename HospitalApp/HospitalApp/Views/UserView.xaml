@@ -4,33 +4,31 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
-    BackgroundColor="#354a6a">
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource BackgroundColor}">
     <ContentPage.Content>
         <ScrollView>
             <Grid RowSpacing="25">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="220" />
+                    <RowDefinition Height="{Binding RowDefinitionOne}" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                     <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
-
                 <!--  header background  -->
                 <Image
                     Grid.Row="0"
                     Aspect="AspectFill"
-                    Source="Back" />
-
+                    Source="Background" />
                 <!--  profile name  -->
                 <StackLayout
                     Grid.Row="1"
                     HorizontalOptions="Center"
                     Orientation="Horizontal">
-                    <Label Text="Gregory" />
-                    <Label Text="House" />
+                    <Label Text="Gregory" TextColor="{StaticResource FontColor}" />
+                    <Label Text="House" TextColor="{StaticResource FontColor}" />
                 </StackLayout>
-
                 <!--  social stats  -->
                 <Grid
                     Grid.Row="2"
@@ -41,35 +39,53 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-
                     <StackLayout Grid.Column="0" HorizontalOptions="Center">
-                        <Label HorizontalTextAlignment="Center" Text="17" />
-                        <Label HorizontalTextAlignment="Center" Text="Vacaciones" />
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="17"
+                            TextColor="{StaticResource FontColor}" />
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="Vacaciones"
+                            TextColor="{StaticResource FontColor}" />
                     </StackLayout>
 
                     <StackLayout Grid.Column="1" HorizontalOptions="Center">
-                        <Label HorizontalTextAlignment="Center" Text="486" />
-                        <Label HorizontalTextAlignment="Center" Text="Guardias" />
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="486"
+                            TextColor="{StaticResource FontColor}" />
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="Guardias"
+                            TextColor="{StaticResource FontColor}" />
                     </StackLayout>
 
                     <StackLayout Grid.Column="2" HorizontalOptions="Center">
-                        <Label HorizontalTextAlignment="Center" Text="687" />
-                        <Label HorizontalTextAlignment="Center" Text="Guardias" />
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="687"
+                            TextColor="{StaticResource FontColor}" />
+                        <Label
+                            HorizontalTextAlignment="Center"
+                            Text="Guardias"
+                            TextColor="{StaticResource FontColor}" />
                     </StackLayout>
                 </Grid>
                 <!--  profile description  -->
                 <Label
                     Grid.Row="3"
                     HorizontalTextAlignment="Center"
-                    Text="Author on SomosTechies.com, Software architect, Certified Xamarin Mobile Developer, UX enthusiast, mobile addicted and clean code lover" />
-
+                    Text="Author on SomosTechies.com, Software architect, Certified Xamarin Mobile Developer, UX enthusiast, mobile addicted and clean code lover"
+                    TextColor="{StaticResource FontColor}" />
                 <!--  follow button  -->
                 <Button
                     Grid.Row="4"
                     Margin="0,0"
-                    BackgroundColor="Aqua"
+                    BackgroundColor="{StaticResource MainColor}"
                     CornerRadius="0"
-                    Text="Cerrar sesión" />
+                    Text="Cerrar sesión"
+                    TextColor="{StaticResource FontColor}" />
                 <!--  profile image  -->
                 <StackLayout>
                     <controls:CircleImage
@@ -78,7 +94,7 @@
                         HeightRequest="80"
                         HorizontalOptions="Start"
                         Source="UserPhoto"
-                        TranslationY="180"
+                        TranslationY="{Binding TranslationY}"
                         WidthRequest="80" />
                 </StackLayout>
             </Grid>

@@ -5,6 +5,7 @@
     using System.Data.Entity.Infrastructure;
     using System.Linq;
     using System.Net;
+    using System.Net.Http;
     using System.Threading.Tasks;
     using System.Web.Http;
     using System.Web.Http.Description;
@@ -27,6 +28,11 @@
         public async Task<IHttpActionResult> PostSpeciality(Speciality speciality)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            if (await db.Specialities.AnyAsync(s => s.Name.ToLower().Contains(speciality.Name.ToLower())))
+            {
+                return ResponseMessage(Request.CreateErrorResponse(HttpStatusCode.Conflict, "The records exist"));
+            }
 
             db.Specialities.Add(speciality);
             await db.SaveChangesAsync();

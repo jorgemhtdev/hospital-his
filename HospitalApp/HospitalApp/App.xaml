@@ -8,13 +8,12 @@
         <ResourceDictionary>
             <!--  Locator  -->
             <infrastructure:InstanceLocator x:Key="Locator" />
-
-            <!--  Colors  -->
-            <Color x:Key="MainColor">#273646</Color>
-            <Color x:Key="FontColor">#2d8dd6</Color>
-            <Color x:Key="AccentColor1">#2371aa</Color>
-            <Color x:Key="AccentColor2">#e44235</Color>
-            <Color x:Key="BackgroundColor">#e9eeef</Color>
+            <!--  Colors https://color.adobe.com/Flat-UI-color-theme-2469224  -->
+            <Color x:Key="MainColor">#e44235</Color>
+            <Color x:Key="FontColor">#e9eeef</Color>
+            <Color x:Key="AccentColor1">#2d8dd6</Color>
+            <Color x:Key="AccentColor2">#2475b0</Color>
+            <Color x:Key="BackgroundColor">#273646</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
