@@ -1,8 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="HospitalApp.Views.NewDoctorView"
+    x:Class="HospitalApp.Views.AddDoctorView"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="{Binding Title}"
+    BackgroundColor="{StaticResource BackgroundColor}">
     <ContentPage.Content>
         <StackLayout>
             <Grid
@@ -14,29 +16,35 @@
                     <RowDefinition Height="40" />
                     <RowDefinition Height="40" />
                 </Grid.RowDefinitions>
-
                 <Entry
                     Grid.Row="0"
                     Placeholder="Nombre"
-                    Text="{Binding Name}" />
+                    PlaceholderColor="{StaticResource FontColor}"
+                    Text="{Binding Name}"
+                    TextColor="{StaticResource FontColor}" />
                 <Entry
                     Grid.Row="1"
                     Placeholder="Age"
-                    Text="{Binding Age}" />
+                    PlaceholderColor="{StaticResource FontColor}"
+                    Text="{Binding Age}"
+                    TextColor="{StaticResource FontColor}" />
                 <Picker
                     Title="Especialidad"
                     Grid.Row="2"
+                    BackgroundColor="{Binding FontColor}"
                     HeightRequest="120"
                     ItemDisplayBinding="{Binding Name}"
                     ItemsSource="{Binding Speciality}"
                     SelectedItem="{Binding SelectPicker}"
+                    TextColor="{StaticResource FontColor}"
                     WidthRequest="120" />
             </Grid>
             <Button
-                BackgroundColor="Red"
+                BackgroundColor="{StaticResource MainColor}"
                 Command="{Binding SaveNewDoctorCommand}"
                 CornerRadius="0"
                 Text="Añadir"
+                TextColor="{StaticResource FontColor}"
                 VerticalOptions="End" />
         </StackLayout>
     </ContentPage.Content>

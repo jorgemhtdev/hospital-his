@@ -60,11 +60,12 @@
 
             return (List<SpecialityResponse>)response.Result;
         }
-        public async Task<bool> NewSpeciality(SpecialityRequest speciality)
-        {
-            var response = await Post(FirstVersion, "/Specialities/Create/", speciality);
 
-            return response.IsSuccess;
+        public async Task<string> NewSpeciality(SpecialityRequest speciality)
+        {
+            var response = await PostStatusCode(FirstVersion, "/Specialities/Create", speciality);
+
+            return response.Message;
         }
         #endregion
 

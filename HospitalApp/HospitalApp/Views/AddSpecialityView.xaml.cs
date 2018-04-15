@@ -5,12 +5,12 @@
     using Xamarin.Forms.Xaml;
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class NewDoctorView : ContentPage
+	public partial class AddSpecialityView : ContentPage
 	{
-		public NewDoctorView ()
+		public AddSpecialityView ()
 		{
 			InitializeComponent ();
-            BindingContext = new NewDoctorViewModel();
+            BindingContext = new AddSpecialityViewModel();
 		}
 	}
 }

@@ -13,7 +13,7 @@
             switch (Device.RuntimePlatform)
             {
                 case Device.iOS:
-                    Children.Add(new SpecialityView() { Title = "Especialidades", Icon = "Specialities" });
+                    Children.Add(new SpecialityView() { Title = "Especialidades", Icon = "Specialities"});
                     Children.Add(new DoctorView() { Title = "Doctores", Icon = "UserTab" });
                     break;
                 case Device.Android:
