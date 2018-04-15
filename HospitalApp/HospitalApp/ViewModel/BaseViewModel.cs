@@ -15,6 +15,7 @@
         #region Attributes
         private string title = string.Empty;
         private bool isRunning;
+        private bool isBusy;
         private bool isEnabled = true;
         private bool isVisible;
         #endregion
@@ -40,21 +41,28 @@
             get => isVisible;
             set => SetProperty(ref isVisible, value);
         }
+        public bool IsBusy
+        {
+            get => isBusy;
+            set => SetProperty(ref isBusy, value);
+        }
         #endregion
 
         #region Methods
-        protected void ActivityIndicatorOff()
-        {
-            isRunning = false;
-            isVisible = false;
-            isEnabled = true;
-        }
-
         protected void ActivityIndicatorOn()
         {
-            isRunning = true;
-            isVisible = true;
-            isEnabled = false;
+            IsRunning = true;
+            IsVisible = true;
+            IsBusy = true;
+            IsEnabled = false;
+        }
+
+        protected void ActivityIndicatorOff()
+        {
+            IsRunning = false;
+            IsVisible = false;
+            IsBusy = false;
+            IsEnabled = true;
         }
 
         protected bool SetProperty<T>(ref T backingStore, T value, [CallerMemberName]string propertyName = "", Action onChanged = null)

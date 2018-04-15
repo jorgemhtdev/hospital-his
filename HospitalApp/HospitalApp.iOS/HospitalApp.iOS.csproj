@@ -132,7 +132,7 @@
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>3.1.1</Version>
     </PackageReference>
-    <PackageReference Include="Xamarin.Forms" Version="2.5.0.280555" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.1.444934" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
@@ -172,5 +172,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\Nav_User.png" />
   </ItemGroup>
 </Project>

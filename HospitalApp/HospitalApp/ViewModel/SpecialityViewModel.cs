@@ -11,6 +11,7 @@
         #region Attributes 
         private ObservableCollection<SpecialityResponse> specialitiesList;
         private bool isVisibleListView;
+        private bool isLoad;
         #endregion
 
         #region Properties
@@ -23,6 +24,11 @@
         {
             get => isVisibleListView;
             set => SetProperty(ref isVisibleListView, value);
+        }
+        public bool IsLoad
+        {
+            get => isLoad;
+            set => SetProperty(ref isLoad, value);
         }
         #endregion
 
@@ -37,6 +43,7 @@
         public ICommand NewSpecialityCommand => new RelayCommand(NewSpeciality);
         private async void NewSpeciality()
         {
+            IsLoad = false;
             await MainViewModel.GetInstance().Navigation.NavigateOnDetailView("NewSpecialityView");
         }
         #endregion
@@ -44,6 +51,10 @@
         #region Methods
         public async Task Load()
         {
+            if (IsLoad) return;
+
+            ActivityIndicatorOn();
+
             if (!await MainViewModel.GetInstance().ApiService.IsConnection()) return;
 
             var listSpecialities = await MainViewModel.GetInstance().ApiService.GetSpecialities();
@@ -52,11 +63,14 @@
             {
                 SpecialitiesList = new ObservableCollection<SpecialityResponse>(listSpecialities);
                 IsVisibleListView = true;
+                IsLoad = true;
             }
             else
             {
                 await MainViewModel.GetInstance().DialogService.ShowMessage("Error", "No se puede obtener la lista de doctores");
             }
+
+            ActivityIndicatorOff();
         }
         #endregion
     }

@@ -24,10 +24,10 @@
             switch (pageName)
             {
                 case "NewSpecialityView":
-                    await App.Navigator.PushAsync(new NewSpecialityView());
+                    await App.Navigator.PushAsync(new AddSpecialityView());
                     break;
-                case "NewDoctorView":
-                    await App.Navigator.PushAsync(new NewDoctorView());
+                case "AddDoctorView":
+                    await App.Navigator.PushAsync(new AddDoctorView());
                     break;
             }
         }

@@ -13,7 +13,7 @@
     public class HttpService
     {
         #region Constant
-        private const string UrlApi = "YOUR_API";
+        private const string UrlApi = "YourApi";
         private const string tokenType = "bearer";
         protected const string FirstVersion = "/api";
         #endregion
@@ -142,19 +142,21 @@
 
                 var response = await client.PostAsync(url, content);
 
+                var result = await response.Content.ReadAsStringAsync();
+
                 if (!response.IsSuccessStatusCode)
                 {
                     return new Response
                     {
                         IsSuccess = false,
-                        Message = response.StatusCode.ToString(),
+                        Message = JsonConvert.DeserializeObject<MessageResponse>(result).Message
                     };
-                }
-
+                };
+                
                 return new Response
                 {
                     IsSuccess = true,
-                    Message = "Record added OK",
+                    Message = "OK",
                 };
             }
             catch (Exception ex)

@@ -7,7 +7,7 @@
     BackgroundColor="{StaticResource BackgroundColor}">
     <ContentPage.Padding>
         <OnPlatform x:TypeArguments="Thickness">
-            <On Platform="Android" Value="0, 30, 0, 0" />
+            <On Platform="Android" Value="0" />
             <On Platform="iOS" Value="0, 50, 0, 0" />
         </OnPlatform>
     </ContentPage.Padding>
@@ -34,20 +34,22 @@
                 <Label Text="Email" TextColor="{StaticResource FontColor}" />
                 <Entry
                     Placeholder="Introduce tu email"
-                    PlaceholderColor="{StaticResource AccentColor1}"
+                    PlaceholderColor="{StaticResource AccentColor2}"
                     Text="{Binding Email}"
-                    TextColor="{StaticResource AccentColor1}" />
+                    TextColor="{StaticResource AccentColor2}" />
                 <Label Text="Password" TextColor="{StaticResource FontColor}" />
                 <Entry
                     IsPassword="True"
                     Placeholder="Introduce tu contraseña"
-                    PlaceholderColor="{StaticResource AccentColor1}"
+                    PlaceholderColor="{StaticResource AccentColor2}"
                     Text="{Binding Password}"
-                    TextColor="{StaticResource AccentColor1}" />
+                    TextColor="{StaticResource AccentColor2}" />
                 <Button
+                    BackgroundColor="{StaticResource MainColor}"
                     Command="{Binding LoginCommand}"
                     IsEnabled="{Binding IsEnabled}"
-                    Text="Iniciar sesión" />
+                    Text="Iniciar sesión"
+                    TextColor="{StaticResource FontColor}" />
                 <ActivityIndicator
                     IsRunning="{Binding IsRunning}"
                     IsVisible="{Binding IsVisible}"
@@ -57,6 +59,7 @@
                     <Label
                         HorizontalTextAlignment="Center"
                         Text="Recordar "
+                        TextColor="{StaticResource FontColor}"
                         VerticalTextAlignment="Center" />
                 </StackLayout>
             </StackLayout>
