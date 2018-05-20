@@ -6,7 +6,7 @@ Login in Xamarin Forms 2.5 with our API. Get, create, delete and update ([CRUD](
 
 ![](https://img.shields.io/teamcity/codebetter/bt428.svg) [![License:MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/jorgemht/Hospital-HIS/blob/master/LICENSE)
 
-## Supported Platforms: iOs and Android
+## Supported Platforms: iOS and Android
 
 The Hospital app is available for two platforms:
 
