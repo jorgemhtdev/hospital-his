@@ -109,10 +109,10 @@ In the file Startup.Auth.cs an OWIN Authorization server is configured to accept
 
 # Tools used
 The following tools are essential:
-* [Genymotion] - The Best Android Emulator
-* [Postman] - Application which is used to fire requests to an API. It is possible to make different kinds of HTTP requests – GET, POST, PUT, PATCH and DELETE.
-* [Quicktype] - Generate c# classes from json.
-* [Color Adobe] - To create color schemes for my designs. For this project I have choosen https://color.adobe.com/Flat-UI-color-theme-2469224/
+* [Genymotion](https://www.genymotion.com) - The Best Android Emulator
+* [Postman](https://www.getpostman.com) - Application which is used to fire requests to an API. It is possible to make different kinds of HTTP requests – GET, POST, PUT, PATCH and DELETE.
+* [Quicktype](https://app.quicktype.io/#l=cs&r=json2csharp) - Generate c# classes from json.
+* [Color Adobe](https://color.adobe.com/Flat-UI-color-theme-2469224/) - To create color schemes for my designs. For this project I have choosen 
 
 # Licenses
 
