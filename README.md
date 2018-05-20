@@ -1,13 +1,38 @@
 # Hospital
  
-### Introduction
 Small example using Xamarin Forms 2.5, MVC5 and web api. 
 
 Login in Xamarin Forms 2.5 with our API. Get, create, delete and update ([CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)) records from Xamarin Forms from our API. All queries from Xamarin Forms are made with token.
 
 ![](https://img.shields.io/teamcity/codebetter/bt428.svg) [![License:MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/jorgemht/Hospital-HIS/blob/master/LICENSE)
 
-# Usage
+## Supported Platforms: iOs and Android
+
+The Hospital app is available for two platforms:
+
+- iOS
+- Android
+
+## Projects
+
+There are 5 different solutions:
+
+**Api**: Project with ASP.NET Web API 2.
+
+**BD**: Project where we define our classes through code, and EF is responsible for generating the database and everything necessary to fit the classes in them.
+
+**Backoffice**: Web with a Cpanel for the administration of the app.
+
+**HospitalApp**: Main project developed with Xamarin.Forms.
+
+**Model** The common models of all the projects.
+
+# Setup
+
+Download or clone the repository. This is a solution with five projects.
+
+Rebuild the solution to get all neccesary NuGet packages.
+
 ### Update your connectionStrings
 Configure a connection string for SQL Server in the Web.config
 ```
@@ -60,6 +85,8 @@ In our PCL, the file Services/HttpService.cs you must put the url of your api an
 - [Rest api tutorial - code-maze](https://code-maze.com/top-rest-api-best-practices/)
 - [Rest api tutorial - solidgeargroup](https://solidgeargroup.com/best-practices-rest-api)
 
+Enjoy!
+
 ### Check your API with postam
 
 - [Get token with postman](https://github.com/jorgemht/Hospital-HIS/blob/master/Screenshots/API/token-postmanclient.png)
@@ -75,46 +102,32 @@ In the file Startup.Auth.cs an OWIN Authorization server is configured to accept
 - [Oauth](https://oauth.net/)
 - [OAuthAuthorizationServerOptions Token](https://github.com/jorgemht/Hospital-HIS/blob/master/Screenshots/API/Token.png)
 
-# Plugins
-### Web API and MVC5 
-| Plugin | Project |
-| ------ | ------ |
-| EntityFramework | Model |
-| Newtonsoft | Model |
+# Requirements
+ * [Visual Studio 2017 version 15.3 or Visual Studio for Mac version 7.3](https://www.visualstudio.com/vs/)
+ * Windows 10
+ * Microsoft Azure subscription
 
-### Xamarin 
-| Plugin | Author |
-| ------ | ------ |
-| Settings | [james montemagno][PlMe] |
-| MvvmLightLibsStd10 | [galasoft][PlGh] |
-| Connectivity | [james montemagno][PlGd] |
-| Newtonsoft | [james Newton-King][NtSt] |
-| Image Circle | [james montemagno][PlOd] |
-
-# Tools
+# Tools used
 The following tools are essential:
 * [Genymotion] - The Best Android Emulator
 * [Postman] - Application which is used to fire requests to an API. It is possible to make different kinds of HTTP requests – GET, POST, PUT, PATCH and DELETE.
 * [Quicktype] - Generate c# classes from json.
 * [Color Adobe] - To create color schemes for my designs. For this project I have choosen https://color.adobe.com/Flat-UI-color-theme-2469224/
 
+# Licenses
+
+This project uses some third-party assets with a license that requires attribution:
+
+- [Settings](https://github.com/jamesmontemagno/SettingsPlugin) : by James Montemagno
+- [MvvmLightLibsStd10](https://www.nuget.org/packages/MvvmLightLibsStd10/5.4.0.1-alpha) : by lbugnion 
+- [Connectivity](https://github.com/jamesmontemagno/ConnectivityPluginx>) : by James Montemagno
+- [Newtonsoft](https://www.newtonsoft.com/json) : by jamesnk 
+- [ImageCirclePlugin](https://github.com/jamesmontemagno/ImageCirclePlugin): by James Montemagno
+- [EntityFramework](https://www.nuget.org/packages/EntityFramework/): by Microsoft's
+
 # Recommended links
 [Getting Started with ASP.NET MVC 5](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/getting-started)
 
-License
-----
-
+# Copyright and license
 The MIT License (MIT) see [License file](https://github.com/jorgemht/Hospital-HIS/blob/master/LICENSE)
-
-   [Genymotion]: <https://www.genymotion.com>
-   [Postman]: <https://www.getpostman.com>
-   [Quicktype]: <https://app.quicktype.io/#l=cs&r=json2csharp>
-   [Color Adobe]: https://color.adobe.com
-
-   [PlDb]: <https://github.com/jamesmontemagno/mvvm-helpers>
-   [PlMe]: <https://github.com/jamesmontemagno/SettingsPlugin>
-   [PlGh]: <https://www.nuget.org/packages/MvvmLightLibsStd10/5.4.0.1-alpha>
-   [PlGd]: <https://github.com/jamesmontemagno/ConnectivityPluginx>
-   [PlOd]: <https://github.com/jamesmontemagno/ImageCirclePlugin>
-   [NtSt]: <https://www.newtonsoft.com/json>
 
