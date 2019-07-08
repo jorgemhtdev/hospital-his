@@ -129,5 +129,5 @@ This project uses some third-party assets with a license that requires attributi
 [Getting Started with ASP.NET MVC 5](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/getting-started)
 
 # Copyright and license
-The MIT License (MIT) see [License file](https://github.com/jorgemht/Hospital-HIS/blob/master/LICENSE)
+The MIT License (MIT) see [License file](https://github.com/jorgemht/Hospital-HIS/blob/master/LICENSE) 
 
